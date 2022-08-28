@@ -16,11 +16,11 @@ from telebot import apihelper
 
 user_dict = {}
 user_text= {}
-bot = telebot.TeleBot("5758810114:AAFGUXRlU_he0BIR1ASRlV-3owPHPzXHt0Y") 
+bot = telebot.TeleBot("5693903999:AAFFMb7sbQGh7AojenjDd_ra9mzIGVT6tX0") 
 admin = 449215179
 
 def tchannel(message):
-	channel = "ttttssxz"
+	channel = "uz_mahsulot_com"
 	result = bot.get_chat_member(f"@{channel}", message.chat.id).status
 	if not(result=="creator" or result=="administrator" or result=="member"):
      
