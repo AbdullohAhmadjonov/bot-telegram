@@ -567,107 +567,30 @@ def mainn(message):
         
             print("YouTube",message.chat.id)
             youtubee(message)
-	    con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+	
     if message.text.startswith('https://insta') or message.text.startswith('http://insta') or message.text.startswith('http://www.insta') or message.text.startswith('https://www.insta'):    
             print("instagram",message.chat.id)
             insta(message)
-            con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+
 
     if message.text.startswith('httpss'): 
             print("TikTok",message.chat.id)
            
             tiktok(message)
-	    con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+
         
     if message.text.startswith('https://likee') or message.text.startswith('http://likee') or message.text.startswith('https://www.like') or message.text.startswith('http://www.like'):      
             likee(message)
-	    con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+
     if message.text.startswith('https://pin') or message.text.startswith('http://pin') or message.text.startswith('https://www.pin') or message.text.startswith('http://www.pin'):    
             pinterest(message)
             print("Pinterest",message.chat.id)
             con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+
     if message.text.startswith('https://vimeo') or message.text.startswith('http://vimeo') or message.text.startswith('https://www.vimeo') or message.text.startswith('http://www.vimeo'):    
             vimeo(message)
             print("vimeo",message.chat.id)  
-	    con=sqlite3.connect('baza.db')
-	    cur=con.cursor()
-	    cur.execute("create table if not exists users(id integer,name text,time text)")
-	    cur.execute("select id from users")
-	    user=cur.fetchall()
-	    l=[]
-	    for i in user:
-		l.append(i[0])
-	    if message.chat.id not in l:
-	      cur.execute(f"""insert into users values({message.chat.id},
-							'{message.from_user.first_name}',
-							'{time.localtime()[:5]}')""")
-	    con.commit()
-	    con.close()
+
 
 
 @bot.callback_query_handler(func=lambda call: True )
