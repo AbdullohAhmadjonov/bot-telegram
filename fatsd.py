@@ -390,7 +390,7 @@ def youtubee(message):
         youtube.add(p480,p320)
         youtube.add(p240,p144)
         youtube.add(mp3,th)
-        bot.send_message(message.chat.id,f'<b>Title:{yt.title}\n\nDescription📜: {yt.description}\n\n\nAuthor: </b>'+f"<a href='{yt.channel_url}'"+">"+f"{yt.author}</a>\n\nVIEWS👁: {yt.views} \n\nSeconds⏲: {yt.length}",parse_mode='html', reply_markup=youtube)
+        bot.send_message(message.chat.id,f'<b>Title🖇:{yt.title}\n\nDescription📜: {yt.description}\n\n\nAuthor: </b>'+f"<a href='{yt.channel_url}'"+">"+f"{yt.author}</a>\n\nVIEWS👁: {yt.views} \n\nSeconds⏲: {yt.length}",parse_mode='html', reply_markup=youtube)
         
         
     
@@ -596,54 +596,53 @@ def callback_inline(call):
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="1080p").first().download()
                     os.rename(video,"video1080.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video1080.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html') 
+                    
+                    bot.send_video(call.message.chat.id,open('video1080.mp4','rb'),parse_mode='html') 
                     os.remove('video1080.mp4')
                 
             if call.data =='720':
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="720p").first().download()
                     os.rename(video,"video720.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video720.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html') 
+                    
+                    bot.send_video(call.message.chat.id,open('video720.mp4','rb'),parse_mode='html') 
                     os.remove('video720.mp4')
                               
             if call.data =='480':
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="480p").first().download()
                     os.rename(video,"video480.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video480.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html')
+                    
+                    bot.send_video(call.message.chat.id,open('video480.mp4','rb'),parse_mode='html')
                     os.remove('video480.mp4')
                     
             if call.data =='360':
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="360p").first().download()
                     os.rename(video,"video360.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video360.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html')
+                    bot.send_video(call.message.chat.id,open('video360.mp4','rb'),parse_mode='html')
                     os.remove('video360.mp4')
                     
             if call.data =='240':
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="240p").first().download()
                     os.rename(video,"video240.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video240.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html')
+                    
+                    bot.send_video(call.message.chat.id,open('video240.mp4','rb'),parse_mode='html')
                     os.remove('video240.mp4')
                     
             if call.data =='144':
                     youtube = YouTube(link)
                     video = youtube.streams.filter(res="144p").first().download()
                     os.rename(video,"video.mp4")
-                    ioop = YouTube(link)
                     
-                    bot.send_video(call.message.chat.id,open('video.mp4','rb'),caption=f'<b>Title:{ioop.title}\n\nDescription📜: {ioop.description}\n\n\nAuthor: </b>'+f"<a href='{ioop.channel_url}'"+">"+f"{ioop.author}</a>\n\nVIEWS👁: {ioop.views} \n\nSeconds⏲: {ioop.length}",parse_mode='html')
+                    
+                    bot.send_video(call.message.chat.id,open('video.mp4','rb'),parse_mode='html')
                     os.remove('video.mp4')
                     
             if call.data =='mp3':
@@ -652,14 +651,16 @@ def callback_inline(call):
                     os.rename(video,"audio.mp3")
                     iop = YouTube(link)
                     
-                    bot.send_audio(call.message.chat.id,open('audio.mp3','rb'),caption=f'<b>Title:{iop.title}\n\nDescription📜: {iop.description}\n\n\nAuthor: </b>'+f"<a href='{iop.channel_url}'"+">"+f"{iop.author}</a>\n\nVIEWS👁: {iop.views} \n\nSeconds⏲: {iop.length}",parse_mode='html')
+                    bot.send_audio(call.message.chat.id,open('audio.mp3','rb'),parse_mode='html')
                     os.remove('audio.mp3')
                     
             if call.data =='th':
                     yt = YouTube(link)
-
-                    bot.send_photo(call.message.chat.id,yt.thumbnail_url,caption=f'<b>Title:{yt.title}\n\nDescription📜: {yt.description}\n\n\nAuthor: </b>'+f"<a href='{yt.channel_url}'"+">"+f"{yt.author}</a>\n\nVIEWS👁: {yt.views} \n\nSeconds⏲: {yt.length}",parse_mode='html')
-                    
+                    try:
+                        bot.send_photo(call.message.chat.id,yt.thumbnail_url,caption=f'<b>Title:{yt.title}\n\nDescription📜: {yt.description}\n\n\nAuthor: </b>'+f"<a href='{yt.channel_url}'"+">"+f"{yt.author}</a>\n\nVIEWS👁: {yt.views} \n\nSeconds⏲: {yt.length}",parse_mode='html')
+                    except:
+                        bot.send_photo(call.message.chat.id,yt.thumbnail_url,caption=f'<b>Title:{yt.title}</b>',parse_mode='html')
+                        
                     
 #################
 #################
