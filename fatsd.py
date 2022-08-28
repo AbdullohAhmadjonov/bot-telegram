@@ -9,7 +9,7 @@ import time
 import os
 from telebot import types
 
-
+from telebot import apihelper
 
 
 
@@ -588,9 +588,11 @@ def mainn(message):
         vimeo(message)
         print("vimeo",message.chat.id)  
         
+if __name__ == '__main__':
+    apihelper.API_URL="http://localhost:8081/bot{0}/{1}"
+    apihelper.FILE_URL="http://localhost:8081"
+    bot.infinity_polling()
 
 
-
-bot.infinity_polling()
 
 #version 1
