@@ -1,6 +1,5 @@
 
 from ast import parse
-from tiktok_downloader import snaptik
 from configparser import Error
 from youtube_dl import YoutubeDL
 from pytube import YouTube
@@ -544,18 +543,7 @@ def insta(message):
 
 def tiktok(message):
     
-        snaptik(link).get_media()[0].download(f"@tiktoksave_bbot.mp4")
-
-        path = f'@tiktoksave_bbot.mp4'
-        with open(f'@tiktoksave_bbot.mp4', 'rb') as file:
-            bot.send_document(message.chat.id, file, caption=f'\n<b>{message.text} ʏᴜᴋʟᴀʙ ʙᴇʀᴜᴠᴄʜɪ: @fast_saverbot</b>',parse_mode="html")
-            os.remove(path)
-        snaptik(link).get_media()[0].download(f"@tiktoksave_bbot.mp3")
-        path = f'@tiktoksave_bbot.mp3'
-        with open(f'@tiktoksave_bbot.mp3', 'rb') as file:
-            bot.send_audio(message.chat.id, file, caption=f'\n<b>{message.text} ʏᴜᴋʟᴀʙ ʙᴇʀᴜᴠᴄʜɪ: @fast_saverbot</b>',parse_mode="html")
-            resend(message)
-            os.remove(path)
+	pass
 
 def vimeo(message):
     URL = message.text
