@@ -373,11 +373,11 @@ def youtubee(message):
         yt = YouTube(link)
 
 
-        p1080 = types.InlineKeyboardButton('📹 1080p', callback_data='1080')
+        p1080 = types.InlineKeyboardButton('📹 720p Ovozsiz 🔇', callback_data='1080')
         p720 = types.InlineKeyboardButton('📹 720p', callback_data='720')
         p480 = types.InlineKeyboardButton('📹 480p', callback_data='480')
         p320 = types.InlineKeyboardButton('📹 360p', callback_data='360')
-        p240 = types.InlineKeyboardButton('📹 240p', callback_data='240')
+        p240 = types.InlineKeyboardButton('📹 360p Ovozsiz 🔇', callback_data='240')
         p144 = types.InlineKeyboardButton('📹 144p', callback_data='144')
         
         mp3 = types.InlineKeyboardButton('🔊 mp3', callback_data='mp3')
