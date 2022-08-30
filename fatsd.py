@@ -569,7 +569,11 @@ def tiktok(message):
 	# print(out)
 	videos = (out['video'][0])
 	audios = (out['music'][0])
-	bot.send_message(message.chat.id,videos)
+	try:
+		bot.send_video(message.chat.id,videos)
+	except:
+		bot.send_message(message.chat.id,videos)
+		
 	bot.send_audio(message.chat.id,audios)
 def vimeo(message):
     URL = message.text
