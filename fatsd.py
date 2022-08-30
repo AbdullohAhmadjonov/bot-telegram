@@ -514,39 +514,63 @@ def likee(message):
 import requests
 from bs4 import BeautifulSoup
 def insta(message):
-    BASE_URL = "https://instasave.website/#downloadhere/"
-    URL = message.text
-    s = requests.Session()
+    try:
+        try:
+            BASE_URL = "https://instasave.website/#downloadhere/"
+            URL = message.text
+            s = requests.Session()
 
-    data = {"link":URL }
-    r = s.post(f'{BASE_URL}', data=data)
+            data = {"link":URL }
+            r = s.post(f'{BASE_URL}', data=data)
 
-    soup = BeautifulSoup(r.text, 'html.parser')
-    urls=[]
-    for a in soup.find_all('a', href=True):
-        try: 
-            if a['href']=="https://pro.instasave.website/":
-                pass
-            elif a['href'] == 'https://instasave.website':
-                pass            
-            elif a['href'] == 'https://server.instasave.website/':
-                pass            
-            elif a['href'] == 'https://en.wikipedia.org/wiki/Instagram':
-                pass
-            else:
-                bot.send_document(message.chat.id,a['href'])
-                # bot.send_video(message.chat.id,a['href'])
-                
-               
-        except Exception as e:
-            print(e)
-            
+            soup = BeautifulSoup(r.text, 'html.parser')
+            urls=[]
+            for a in soup.find_all('a', href=True):
+
+                    if a['href']=="https://pro.instasave.website/":
+                        pass
+                    elif a['href'] == 'https://instasave.website':
+                        pass            
+                    elif a['href'] == 'https://server.instasave.website/':
+                        pass            
+                    elif a['href'] == 'https://en.wikipedia.org/wiki/Instagram':
+                        pass
+                    else:
+                        bot.send_document(message.chat.id,a['href'])
+        except:
+                    BASE_URL = "https://vidiget.com/instagram_downloader#"
+                    URL =message.text
+                    s = requests.Session()
+                    data = {"insta_page":URL }
+                    r = s.post(f'{BASE_URL}', data=data)
+                    soup = BeautifulSoup(r.text, 'html.parser')
+                    for link in soup.findAll('a', {'class': 'btn btn-sm btn-danger dl-btn'}):
+                        bot.send_document(message.chat.id,link['href'])
+    except:
+        pass
+
 
     resend(message)
         
 
 def tiktok(message):
-    pass
+
+
+	video_link = (message.text)
+	url = "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index"
+	querystring = {"url":video_link}
+	headers = {
+	    "X-RapidAPI-Key": "9efcf11663mshb40c0e1c8869076p116fcbjsneacdd84f6dba",
+	    "X-RapidAPI-Host": "tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com"
+	}
+	response = requests.request("GET", url, headers=headers, params=querystring)
+	ol = (response.text)
+	out = json.loads(ol)
+	# print(out)
+	videos = (out['video'][0])
+	audios = (out['music'][0])
+	bot.send_message(message.chat.id,videos)
+	bot.send_audio(message.chat.id,audios)
 def vimeo(message):
     URL = message.text
     BASE_URL = 'https://vidiget.com/vimeo_downloader'
@@ -565,33 +589,28 @@ def mainn(message):
 
     if message.text.startswith('https://you') or message.text.startswith('http://you') or message.text.startswith('https://www.you') or message.text.startswith('http://www.you'):   
         
-            print("YouTube",message.chat.id)
-            youtubee(message)
-	
+        print("YouTube",message.chat.id)
+        youtubee(message)
     if message.text.startswith('https://insta') or message.text.startswith('http://insta') or message.text.startswith('http://www.insta') or message.text.startswith('https://www.insta'):    
-            print("instagram",message.chat.id)
-            insta(message)
-
-
-    if message.text.startswith('httpss'): 
-            print("TikTok",message.chat.id)
+        print("instagram",message.chat.id)
+        insta(message)
+        
+        
+    if message.text.startswith('https://tiktok') or message.text.startswith('http://tiktok') or message.text.startswith('http://www.tiktok') or message.text.startswith('https://www.tiktok') or  message.text.startswith('https://v') or message.text.startswith('http://v') or message.text.startswith('http://www.v') or message.text.startswith('https://www.v'):    
+        print("TikTok",message.chat.id)
            
-            tiktok(message)
-
+        tiktok(message)
         
     if message.text.startswith('https://likee') or message.text.startswith('http://likee') or message.text.startswith('https://www.like') or message.text.startswith('http://www.like'):      
-            likee(message)
-
+        likee(message)
     if message.text.startswith('https://pin') or message.text.startswith('http://pin') or message.text.startswith('https://www.pin') or message.text.startswith('http://www.pin'):    
-            pinterest(message)
-            print("Pinterest",message.chat.id)
-            con=sqlite3.connect('baza.db')
-
+        pinterest(message)
+        print("Pinterest",message.chat.id)
+        
     if message.text.startswith('https://vimeo') or message.text.startswith('http://vimeo') or message.text.startswith('https://www.vimeo') or message.text.startswith('http://www.vimeo'):    
-            vimeo(message)
-            print("vimeo",message.chat.id)  
-
-
+        vimeo(message)
+        print("vimeo",message.chat.id)  
+        
 
 @bot.callback_query_handler(func=lambda call: True )
 def callback_inline(call):  
@@ -705,7 +724,3 @@ if __name__ == '__main__':
     bot.infinity_polling()
 # bot.infinity_polling()
 
-
-
-
-#version 1
