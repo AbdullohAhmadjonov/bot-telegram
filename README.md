@@ -1,2 +1,2 @@
-# bot-telegram
-if else
+@Fast_sAVERBOt
+Boshqaa
